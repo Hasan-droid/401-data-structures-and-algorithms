@@ -84,24 +84,34 @@ class LinkedList{
         if(k <= 0){
             throw new Error("Must be positive integer value of k.")
         }
+      
        let pointer1=this.head;
         let pointer2=this.head;
           if(pointer1.next == null){
               console.log("linked list is size of 1")
               return ; 
           }
-        for(let i=0 ; i < k -1 ; i++){
-            if(!pointer2)
-           {    console.log("k is greater than the length of the linked list.");
-                  return ;
+          try{
+            for(let i=0 ; i < k -1 ; i++){
+                if(!pointer2)
+               {    console.log("k is greater than the length of the linked list.");
+                      return false;
+                }
+                
+               
+                pointer2=pointer2.next;
+                
             }
             
-           
-            pointer2=pointer2.next;
-            
+        }catch(e){
+            console.log(e.message);
         }
-        if(!pointer2)
-        return console.log("k is the size of the linked list.")
+       
+        if(!pointer2){
+            console.log("k is the size of the linked list.");
+            return false;
+        }
+     
 
         while(pointer2.next){
             pointer1=pointer1.next;
@@ -137,6 +147,6 @@ test.append(4);
 // test.insertBefore(3 , 5)
 // test.insertAfter(1 , 4)
 
-console.log(test.kthFromEnd(5));
+console.log(test.kthFromEnd(6));
 
 module.exports=LinkedList;
