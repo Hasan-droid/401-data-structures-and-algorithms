@@ -84,7 +84,21 @@ describe("LinkedList.js TESTS", () => {
     test.insert(1);
     test.append(2);
     test.append(4);
+    expect(test.kthFromEnd(5)).toEqual(false);
+  })
+  it(" kthFromEnd(k) k is same size false TEST", ()=>{
+    let test =new LinkedList();
+    test.insert(1);
+    test.append(2);
+    test.append(4);
     expect(test.kthFromEnd(4)).toEqual(false);
+  })
+  it(" kthFromEnd(k) k is not poostive integer false TEST", ()=>{
+    let test =new LinkedList();
+    test.insert(1);
+    test.append(2);
+    test.append(4);
+    expect(test.kthFromEnd(-1)).toThrow();
   })
   it("toString() TEST", () => {
     let newList = new LinkedList();
